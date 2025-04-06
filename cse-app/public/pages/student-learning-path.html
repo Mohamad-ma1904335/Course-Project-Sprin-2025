@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Path</title>
+  <link rel="stylesheet" href="../styles/dashboard.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">CSE App</div>
+    <div class="user-info">
+      <span id="welcomeUser">Welcome, Student</span>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <ul>
+        <li><a href="student-dashboard.html">Dashboard</a></li>
+        <li><a href="#">Learning Path</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <h2>Learning Path</h2>
+
+      <h3>✅ Completed Courses</h3>
+      <ul id="completedList"></ul>
+
+      <h3>📘 In Progress Courses</h3>
+      <ul id="inProgressList"></ul>
+
+      <h3>🕐 Pending Registrations</h3>
+      <ul id="pendingList"></ul>
+    </main>
+  </div>
+
+  <script src="../scripts/student-learning-path.js"></script>
+</body>
+</html>

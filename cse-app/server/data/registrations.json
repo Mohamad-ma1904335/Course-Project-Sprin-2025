@@ -1,0 +1,8 @@
+[
+  {
+    "studentId": "s123",
+    "courseId": "CS101",
+    "classId": "CL101",
+    "status": "approved"
+  }
+]

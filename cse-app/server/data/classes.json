@@ -1,0 +1,29 @@
+[
+  {
+    "classId": "CL101",
+    "courseId": "CS101",
+    "instructorId": "i456",
+    "time": "Mon 10am - 12pm",
+    "maxSeats": 3,
+    "enrolledStudentIds": [],
+    "status": "pending"
+  },
+  {
+    "classId": "CL201",
+    "courseId": "CS102",
+    "instructorId": "i456",
+    "time": "Thu 1pm - 3pm",
+    "maxSeats": 2,
+    "enrolledStudentIds": [],
+    "status": "pending"
+  },
+  {
+    "classId": "CL301",
+    "courseId": "CS103",
+    "instructorId": "i456",
+    "time": "Sun 10am - 12pm",
+    "maxSeats": 1,
+    "enrolledStudentIds": [],
+    "status": "pending"
+  }
+]

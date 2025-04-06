@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CS101",
+    "name": "Intro to Programming",
+    "category": "Programming",
+    "prerequisites": [],
+    "status": "open"
+  },
+  {
+    "id": "CS102",
+    "name": "Databases",
+    "category": "Databases",
+    "prerequisites": ["CS101"],
+    "status": "open"
+  },
+  {
+    "id": "CS103",
+    "name": "Web Development",
+    "category": "Programming",
+    "prerequisites": [],
+    "status": "open"
+  }
+]
