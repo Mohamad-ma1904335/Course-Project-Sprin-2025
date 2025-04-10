@@ -40,40 +40,40 @@ router.get('/courses', (req, res) => {
 
 router.get('/learning-path/:studentId', (req, res) => {
   const studentId = req.params.studentId;
-
   const users = JSON.parse(fs.readFileSync(usersPath));
   const registrations = JSON.parse(fs.readFileSync(registrationsPath));
   const courses = JSON.parse(fs.readFileSync(coursesPath));
-  const classes = JSON.parse(fs.readFileSync(classesPath));
 
   const student = users.find(u => u.id === studentId && u.role === 'student');
-  if (!student) return res.status(404).json({ message: 'Student not found' });
 
-  const completedCourses = student.completedCourses.map(c => {
-    const course = courses.find(co => co.id === c.courseId);
-    return {
-      id: c.courseId,
-      name: course?.name || c.courseId,
-      grade: c.grade
-    };
+  const completed = student.completedCourses.map(c => {
+    const course = courses.find(course => course.id === c.courseId);
+    return { ...course, grade: c.grade };
   });
 
-  const inProgress = registrations
-    .filter(r => r.studentId === studentId && r.status === 'approved')
+  const studentRegs = registrations.filter(r => r.studentId === studentId);
+
+  const inProgress = studentRegs
+    .filter(r => r.status === 'approved')
     .map(r => {
       const course = courses.find(c => c.id === r.courseId);
-      return { id: r.courseId, name: course?.name || r.courseId };
+      return course;
     });
 
-  const pending = registrations
-    .filter(r => r.studentId === studentId && r.status === 'pending')
+  const pending = studentRegs
+    .filter(r => r.status === 'pending')
     .map(r => {
       const course = courses.find(c => c.id === r.courseId);
-      return { id: r.courseId, name: course?.name || r.courseId };
+      return course;
     });
 
-  res.json({ completed: completedCourses, inProgress, pending });
+  res.json({
+    completed,
+    inProgress,
+    pending
+  });
 });
+
 
 
 // GET all courses with their classes
@@ -265,6 +265,17 @@ router.get('/classes/:courseId', (req, res) => {
 
   res.json(filtered);
 });
+
+router.get('/users', (req, res) => {
+  const users = JSON.parse(fs.readFileSync(usersPath));
+  res.json(users);
+});
+
+router.get('/classes', (req, res) => {
+  const classes = JSON.parse(fs.readFileSync(classesPath));
+  res.json(classes);
+});
+
 
 
 

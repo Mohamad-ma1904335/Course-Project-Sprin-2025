@@ -1,8 +1,14 @@
 [
   {
     "studentId": "s123",
+    "courseId": "CS102",
+    "classId": "CL201",
+    "status": "pending"
+  },
+  {
+    "studentId": "s123",
     "courseId": "CS101",
     "classId": "CL101",
-    "status": "approved"
+    "status": "pending"
   }
 ]

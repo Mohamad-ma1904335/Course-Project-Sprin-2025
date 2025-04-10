@@ -22,21 +22,34 @@ function createStatusTag(status) {
   return `<span class="status-tag status-${status}">${status}</span>`;
 }
 
-async function renderCourses(courses, registeredIds) {
+async function renderCourses(courses, registeredData) {
   coursesList.innerHTML = '';
 
+  const inProgressIds = registeredData.inProgress.map(c => c.id);
+  const pendingIds = registeredData.pending.map(c => c.id);
+  
+
   courses.forEach(course => {
-    const isRegistered = registeredIds.includes(course.id);
+    const isRegistered = inProgressIds.includes(course.id);
+    const isPending = pendingIds.includes(course.id);
+
     const courseCard = document.createElement('div');
     courseCard.className = 'course-item';
+
+    let buttonHTML = '';
+    if (isRegistered) {
+      buttonHTML = `<button disabled class="status-button registered">✔️ Registered</button>`;
+    } else if (isPending) {
+      buttonHTML = `<button disabled class="status-button pending">🕓 Waiting for Approval</button>`;
+    } else {
+      buttonHTML = `<button onclick="showClassOptions('${course.id}', 'classes-${course.id}')">Show Classes</button>`;
+    }
 
     courseCard.innerHTML = `
       <h4>${course.name}</h4>
       <p>Category: ${course.category}</p>
       <p>Status: ${createStatusTag(course.status)}</p>
-      <button ${isRegistered ? 'disabled' : ''} onclick="showClassOptions('${course.id}', 'classes-${course.id}')">
-        ${isRegistered ? 'Already Registered' : 'Show Classes'}
-      </button>
+      ${buttonHTML}
       <div id="classes-${course.id}" class="class-options"></div>
     `;
 
@@ -111,18 +124,23 @@ window.onload = async () => {
   }
 
   document.getElementById('welcomeUser').innerText = `Welcome, ${user.username}`;
-  const allCourses = await fetchCourses();
-  const registeredIds = await getRegisteredCourseIds(user.id);
-  renderCourses(allCourses, registeredIds);
+
+  const allCourses = await fetch('http://localhost:3000/api/courses').then(res => res.json());
+
+  const registeredData = await fetch(`http://localhost:3000/api/learning-path/${user.id}`).then(res => res.json());
+
+  renderCourses(allCourses, registeredData);
 
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
     const filtered = allCourses.filter(c =>
       c.name.toLowerCase().includes(query) || c.category.toLowerCase().includes(query)
     );
-    renderCourses(filtered, registeredIds);
+    renderCourses(filtered, registeredData);
   });
 };
+
+
 
 // ✅ expose inline handler
 window.showClassOptions = showClassOptions;
