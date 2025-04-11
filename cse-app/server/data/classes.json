@@ -8,7 +8,7 @@
     "enrolledStudentIds": [
       "s123"
     ],
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classId": "CL201",
@@ -19,7 +19,7 @@
     "enrolledStudentIds": [
       "s123"
     ],
-    "status": "pending"
+    "status": "approved"
   },
   {
     "classId": "CL301",
@@ -28,6 +28,6 @@
     "time": "Sun 10am - 12pm",
     "maxSeats": 1,
     "enrolledStudentIds": [],
-    "status": "pending"
+    "status": "approved"
   }
 ]

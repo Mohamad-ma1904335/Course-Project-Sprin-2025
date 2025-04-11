@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="../styles/dashboard.css" />
+  <link rel="stylesheet" href="/styles/admin-dashboard.css" />
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">CSE App</div>
+    <div class="logo">CSE Admin Panel</div>
     <div class="user-info">
-      <span id="welcomeUser">Welcome, Admin</span>
+      <span id="welcomeUser">Admin Dashboard</span>
       <button onclick="logout()">Logout</button>
     </div>
   </header>
@@ -19,23 +18,16 @@
     <aside class="sidebar">
       <ul>
         <li><a href="#">Dashboard</a></li>
-        <li><a href="#" onclick="showCreateForm()">Create Course/Class</a></li>
+        <li><a href="#">Create Course/Class</a></li>
       </ul>
     </aside>
 
     <main class="main-content">
-      <h2>Course Management</h2>
-      <div id="courseList"></div>
-
-      <div id="createForm" style="display:none; margin-top:2rem;">
-        <h3>Create New Course</h3>
-        <input type="text" id="newCourseName" placeholder="Course Name" />
-        <input type="text" id="newCourseCategory" placeholder="Category" />
-        <button onclick="createCourse()">Create Course</button>
-      </div>
+      <h2>All Courses</h2>
+      <div id="courseContainer" class="course-grid"></div>
     </main>
   </div>
 
-  <script src="../scripts/admin-dashboard.js"></script>
+  <script src="/scripts/admin-dashboard.js"></script>
 </body>
 </html>
