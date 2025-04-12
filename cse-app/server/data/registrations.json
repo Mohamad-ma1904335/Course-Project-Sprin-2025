@@ -4,5 +4,11 @@
     "courseId": "CS670",
     "classId": "CL276",
     "status": "pending"
+  },
+  {
+    "studentId": "s123",
+    "courseId": "CS103",
+    "classId": "CL301",
+    "status": "pending"
   }
 ]

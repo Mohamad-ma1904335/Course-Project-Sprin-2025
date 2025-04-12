@@ -27,7 +27,9 @@
     "instructorId": "i456",
     "time": "Sun 10am - 12pm",
     "maxSeats": 1,
-    "enrolledStudentIds": [],
+    "enrolledStudentIds": [
+      "s123"
+    ],
     "status": "approved"
   },
   {

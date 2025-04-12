@@ -15,10 +15,17 @@ body {
     padding: 1rem 2rem;
   }
   
-  .navbar .logo {
-    font-size: 1.3rem;
-    font-weight: bold;
+  .logo {
+    display: flex;
+    align-items: center;
   }
+  
+  .logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+  
   
   .navbar .user-info button {
     background: white;
