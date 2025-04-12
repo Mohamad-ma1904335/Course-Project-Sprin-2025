@@ -10,7 +10,9 @@
     "id": "CS102",
     "name": "Databases",
     "category": "Databases",
-    "prerequisites": ["CS101"],
+    "prerequisites": [
+      "CS101"
+    ],
     "status": "open"
   },
   {
@@ -18,6 +20,22 @@
     "name": "Web Development",
     "category": "Programming",
     "prerequisites": [],
+    "status": "open"
+  },
+  {
+    "id": "CS670",
+    "name": "Algorithems",
+    "category": "Programing",
+    "prerequisites": [],
+    "status": "open"
+  },
+  {
+    "id": "CS198",
+    "name": "Data Structure",
+    "category": "Programing",
+    "prerequisites": [
+      "CS101"
+    ],
     "status": "open"
   }
 ]

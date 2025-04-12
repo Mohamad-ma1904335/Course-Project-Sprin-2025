@@ -29,5 +29,14 @@
     "maxSeats": 1,
     "enrolledStudentIds": [],
     "status": "approved"
+  },
+  {
+    "classId": "CL276",
+    "courseId": "CS670",
+    "instructorId": "i789",
+    "time": "Sun 2PM-3PM",
+    "maxSeats": 5,
+    "enrolledStudentIds": [],
+    "status": "pending"
   }
 ]

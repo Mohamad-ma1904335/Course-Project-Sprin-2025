@@ -1,37 +1,56 @@
 [
-    {
-      "id": "s123",
-      "username": "student1",
-      "password": "1234",
-      "role": "student",
-      "completedCourses": [{ "courseId": "CS101", "grade": "A" }]
-    },
-    {
-      "id": "s124",
-      "username": "student2",
-      "password": "1234",
-      "role": "student",
-      "completedCourses": []
-    },
-    {
-      "id": "i456",
-      "username": "instructor1",
-      "password": "1234",
-      "role": "instructor",
-      "expertise": ["Programming"]
-    },
-    {
-      "id": "i789",
-      "username": "instructor2",
-      "password": "1234",
-      "role": "instructor",
-      "expertise": ["Databases"]
-    },
-    {
-      "id": "a789",
-      "username": "admin1",
-      "password": "1234",
-      "role": "admin"
-    }
-  ]
-  
+  {
+    "id": "s123",
+    "username": "student1",
+    "password": "1234",
+    "role": "student",
+    "completedCourses": [
+      {
+        "courseId": "CS101",
+        "classId": "CS100",
+        "grade": "F"
+      },
+      {
+        "courseId": "CS102",
+        "classId": "CL201",
+        "grade": "B"
+      },
+      {
+        "courseId": "CS101",
+        "classId": "CL101",
+        "grade": "A"
+      }
+    ]
+  },
+  {
+    "id": "s124",
+    "username": "student2",
+    "password": "1234",
+    "role": "student",
+    "completedCourses": []
+  },
+  {
+    "id": "i456",
+    "username": "instructor1",
+    "password": "1234",
+    "role": "instructor",
+    "expertise": [
+      "Programming"
+    ]
+  },
+  {
+    "id": "i789",
+    "username": "instructor2",
+    "password": "1234",
+    "role": "instructor",
+    "expertise": [
+      "Databases"
+    ]
+  },
+  {
+    "id": "a789",
+    "username": "admin1",
+    "password": "1234",
+    "role": "admin"
+  }
+]

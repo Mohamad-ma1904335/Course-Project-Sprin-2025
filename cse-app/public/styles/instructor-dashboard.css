@@ -1,0 +1,168 @@
+/* === Base Layout === */
+body {
+    background-color: #f5f7fa;
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+    margin: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+  }
+  
+  .navbar .logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  .navbar .user-info button {
+    background: white;
+    color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* === Sidebar === */
+  .sidebar {
+    width: 220px;
+    background-color: #f0f2f5;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 1.25rem;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #e2e6ea;
+  }
+  
+  /* === Main Content === */
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  .class-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* === Class Card === */
+  .class-card {
+    background: white;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-left: 5px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .class-card h3 {
+    margin: 0 0 0.75rem;
+  }
+  
+  .student-list {
+    margin-top: 1rem;
+  }
+  
+  .student-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed #ccc;
+    padding: 0.5rem 0;
+  }
+  
+  .student-entry:first-child {
+    border-top: none;
+  }
+  
+  .student-entry input {
+    padding: 6px;
+    width: 80px;
+    margin-left: 1rem;
+  }
+  
+  .submit-grade-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  
+  .submit-grade-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* === Responsive === */
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    .main-content {
+      padding: 1rem;
+    }
+  
+    .student-entry {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  
+    .student-entry input {
+      width: 100%;
+    }
+  
+    .submit-grade-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

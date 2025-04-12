@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Instructor Dashboard</title>
+  <title>Submit Grades</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles/instructor-dashboard.css" />
 </head>
@@ -10,7 +10,7 @@
   <header class="navbar">
     <div class="logo">CSE Instructor Panel</div>
     <div class="user-info">
-      <span id="welcomeUser">Welcome, Instructor</span>
+      <span id="welcomeUser">Submit Grades</span>
       <button onclick="logout()">Logout</button>
     </div>
   </header>
@@ -24,12 +24,11 @@
     </aside>
 
     <main class="main-content">
-      <h2>My Classes</h2>
-      <div id="myClassList"></div>
+      <h2>Submit Grades</h2>
+      <div id="classContainer" class="class-grid"></div>
     </main>
-    
   </div>
 
-  <script src="/scripts/instructor-dashboard.js"></script>
+  <script src="/scripts/instructor-submit.js"></script>
 </body>
 </html>

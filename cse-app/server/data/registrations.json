@@ -1,14 +1,1 @@
-[
-  {
-    "studentId": "s123",
-    "courseId": "CS102",
-    "classId": "CL201",
-    "status": "approved"
-  },
-  {
-    "studentId": "s123",
-    "courseId": "CS101",
-    "classId": "CL101",
-    "status": "approved"
-  }
-]
+[]

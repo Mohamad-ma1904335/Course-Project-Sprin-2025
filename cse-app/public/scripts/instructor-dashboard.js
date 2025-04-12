@@ -1,59 +1,46 @@
 function logout() {
-    localStorage.removeItem('user');
-    window.location.href = 'login.html';
+  localStorage.removeItem('user');
+  window.location.href = '/';
+}
+
+window.onload = async () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  if (!user || user.role !== 'instructor') {
+    window.location.href = '/';
+    return;
   }
-  
-  async function loadClasses() {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (!user || user.role !== 'instructor') {
-      window.location.href = 'login.html';
-      return;
-    }
-  
-    document.getElementById('welcomeUser').innerText = `Welcome, ${user.username}`;
-  
-    const res = await fetch(`http://localhost:3000/api/instructor/classes/${user.id}`);
-    const data = await res.json();
-    renderClasses(data);
+
+  document.getElementById('welcomeUser').innerText = `Welcome, ${user.username}`;
+
+  const classes = await fetch('/api/classes').then(res => res.json());
+  const users = await fetch('/api/users').then(res => res.json());
+  const courses = await fetch('/api/courses').then(res => res.json());
+
+  const myClasses = classes.filter(c => c.instructorId === user.id);
+
+  renderInstructorClassOverview(myClasses, courses);
+};
+
+
+
+function renderInstructorClassOverview(classList, courses) {
+  const container = document.getElementById('myClassList');
+  container.innerHTML = '';
+
+  if (classList.length === 0) {
+    container.innerHTML = '<p>You are not assigned to any classes.</p>';
+    return;
   }
-  
-  function renderClasses(classes) {
-    const container = document.getElementById('classList');
-    container.innerHTML = '';
-  
-    classes.forEach(cls => {
-      const classDiv = document.createElement('div');
-      classDiv.className = 'course-item';
-      classDiv.innerHTML = `<h4>Course: ${cls.courseName}</h4><ul>`;
-  
-      cls.students.forEach(student => {
-        classDiv.innerHTML += `
-          <li>
-            ${student.username} (${student.id})
-            <input type="text" placeholder="Grade" id="grade-${cls.classId}-${student.id}" />
-            <button onclick="submitGrade('${cls.classId}', '${student.id}', '${cls.courseId}')">Submit</button>
-          </li>
-        `;
-      });
-  
-      classDiv.innerHTML += '</ul>';
-      container.appendChild(classDiv);
-    });
-  }
-  
-  async function submitGrade(classId, studentId, courseId) {
-    const inputId = `grade-${classId}-${studentId}`;
-    const grade = document.getElementById(inputId).value;
-  
-    const res = await fetch('http://localhost:3000/api/instructor/submit-grade', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ classId, studentId, courseId, grade })
-    });
-  
-    const data = await res.json();
-    alert(data.message);
-  }
-  
-  window.onload = loadClasses;
-  
+
+  classList.forEach(cls => {
+    const course = courses.find(c => c.id === cls.courseId);
+    const div = document.createElement('div');
+    div.className = 'class-card';
+    div.innerHTML = `
+      <h3>${course?.name || 'Unnamed Course'}</h3>
+      <p><strong>Time:</strong> ${cls.time}</p>
+      <p><strong>Enrolled Students:</strong> ${cls.enrolledStudentIds.length}</p>
+    `;
+    container.appendChild(div);
+  });
+}
