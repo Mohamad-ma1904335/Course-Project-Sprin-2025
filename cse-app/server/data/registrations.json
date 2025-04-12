@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "studentId": "s124",
+    "courseId": "CS670",
+    "classId": "CL276",
+    "status": "pending"
+  }
+]

@@ -36,7 +36,9 @@
     "instructorId": "i789",
     "time": "Sun 2PM-3PM",
     "maxSeats": 5,
-    "enrolledStudentIds": [],
+    "enrolledStudentIds": [
+      "s124"
+    ],
     "status": "pending"
   }
 ]

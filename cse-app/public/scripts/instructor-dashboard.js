@@ -28,7 +28,7 @@ function renderInstructorClassOverview(classList, courses) {
   container.innerHTML = '';
 
   if (classList.length === 0) {
-    container.innerHTML = '<p>You are not assigned to any classes.</p>';
+    container.innerHTML = '<div class="empty-state">You are not assigned to any classes.</div>';
     return;
   }
 
@@ -37,10 +37,14 @@ function renderInstructorClassOverview(classList, courses) {
     const div = document.createElement('div');
     div.className = 'class-card';
     div.innerHTML = `
-      <h3>${course?.name || 'Unnamed Course'}</h3>
-      <p><strong>Time:</strong> ${cls.time}</p>
-      <p><strong>Enrolled Students:</strong> ${cls.enrolledStudentIds.length}</p>
-    `;
+    <h3>${course?.name || 'Unnamed Course'}</h3>
+    <p><strong>Class ID:</strong> ${cls.classId}</p>
+    <p><strong>Class Time:</strong> ${cls.time}</p>
+    <p><strong>Enrolled Students:</strong> ${cls.enrolledStudentIds?.length || 0}</p>
+    <a href="/pages/instructor-submit.html" class="view-link">Submit Grades</a>
+  `;
+  
     container.appendChild(div);
   });
 }
+

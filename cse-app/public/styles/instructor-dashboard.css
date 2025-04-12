@@ -85,18 +85,51 @@ body {
   }
   
   /* === Class Card === */
+  .class-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
   .class-card {
     background: white;
     padding: 1.5rem;
-    border: 1px solid #ccc;
     border-left: 5px solid #007bff;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+  }
+  
+  .class-card:hover {
+    transform: translateY(-3px);
   }
   
   .class-card h3 {
-    margin: 0 0 0.75rem;
+    margin-top: 0;
   }
+  
+  .view-link {
+    margin-top: 1rem;
+    display: inline-block;
+    color: #007bff;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .view-link:hover {
+    text-decoration: underline;
+  }
+  
+  .empty-state {
+    padding: 2rem;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 6px;
+    color: #856404;
+    text-align: center;
+    font-weight: 500;
+  }
+  
   
   .student-list {
     margin-top: 1rem;
